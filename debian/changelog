@@ -1,0 +1,5 @@
+cloudzack-cli (0.1.0) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Zack Langford <your.email@example.com>  $(date -R)

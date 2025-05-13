@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+# Install Python dependencies
+pip3 install boto3 botocore
+
+# Make scripts executable
+find /opt/cloudzack-cli -name "*.py" -exec chmod +x {} \;
+
+# Create symlinks in /usr/local/bin
+for script in /opt/cloudzack-cli/shared/*.py; do
+  script_name=$(basename "$script" .py)
+  ln -sf "$script" "/usr/local/bin/cloudzack-$script_name"
+done
+
+# Create configuration directory for each user
+if [ -d /home ]; then
+  for user_home in /home/*; do
+    if [ -d "$user_home" ]; then
+      user=$(basename "$user_home")
+      mkdir -p "$user_home/.cloudzack-cli"
+      chown -R "$user:$user" "$user_home/.cloudzack-cli"
+    fi
+  done
+fi
+
+echo "CloudZack CLI has been installed successfully!"
+echo "REMINDER: You will need to run 'aws configure' to set up your AWS credentials."
+echo "You will need your AWS Access Key ID and Secret Access Key."
+
+exit 0
