@@ -2,7 +2,13 @@
 
 A collection of customized scripts and Python workflows to quickly interact with AWS.
 
-## Installation
+## Quick Installation (Ubuntu/Debian)
+
+```bash
+curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/install | bash
+```
+
+## Installation Options
 
 ### Using Debian Package (Recommended for Ubuntu/Debian)
 
@@ -13,12 +19,6 @@ A collection of customized scripts and Python workflows to quickly interact with
    sudo dpkg -i cloudzack-cli_0.1.0_all.deb
    sudo apt-get install -f  # Install any missing dependencies
    ```
-
-### One-line installer (Ubuntu)
-
-```bash
-curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/install.sh | sudo bash
-```
 
 ### Manual installation
 
@@ -48,7 +48,7 @@ If you want to build the Debian package yourself:
    ./build-deb.sh
    ```
 
-3. The .deb file will be created in the parent directory.
+3. The .deb file will be created in the current directory.
 
 ## Available Commands
 

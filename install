@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# CloudZack CLI one-line installer
+set -e
+
+echo "Installing CloudZack CLI..."
+curl -sL https://github.com/zackrylangford/cloudzack-cli/releases/download/v0.1.0/cloudzack-cli_0.1.0_all.deb -o /tmp/cloudzack-cli.deb
+sudo dpkg -i /tmp/cloudzack-cli.deb
+sudo apt-get install -f -y
+rm /tmp/cloudzack-cli.deb
+
+echo "CloudZack CLI installed successfully!"
