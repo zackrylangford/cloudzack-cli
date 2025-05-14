@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# CloudZack CLI uninstaller
+set -e
+
+echo "Uninstalling CloudZack CLI..."
+sudo apt-get remove -y cloudzack-cli
+
+echo "Do you want to remove configuration files as well? (y/n)"
+read -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Removing configuration files..."
+  sudo apt-get purge -y cloudzack-cli
+  
+  # Remove user config directories
+  if [ -d "$HOME/.cloudzack-cli" ]; then
+    echo "Removing user configuration directory..."
+    rm -rf "$HOME/.cloudzack-cli"
+  fi
+fi
+
+echo "CloudZack CLI has been uninstalled."

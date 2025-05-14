@@ -65,3 +65,25 @@ aws configure
 ```
 
 You'll need your AWS Access Key ID and Secret Access Key.
+
+## Uninstallation
+
+### Quick Uninstallation
+
+```bash
+curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/uninstall | bash
+```
+
+### Manual Uninstallation
+
+To remove CloudZack CLI from your system:
+
+```bash
+sudo apt-get remove cloudzack-cli
+```
+
+This will remove the package but keep configuration files. To remove everything including configuration:
+
+```bash
+sudo apt-get purge cloudzack-cli
+```
