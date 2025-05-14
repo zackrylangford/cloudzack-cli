@@ -1,13 +1,13 @@
 Source: cloudzack-cli
 Section: utils
 Priority: optional
-Maintainer: Zack Langford <your.email@example.com>
+Maintainer: Zack Langford <zack@cloudzack.com>
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.5.0
 
 Package: cloudzack-cli
 Architecture: all
-Depends: python3, python3-pip, awscli
+Depends: python3, python3-pip, curl, unzip
 Description: Custom AWS CLI tools and workflows
  CloudZack CLI provides customized scripts and Python workflows
  to quickly interact with AWS services like EC2 instances.
