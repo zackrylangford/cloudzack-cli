@@ -5,7 +5,8 @@ A collection of customized scripts and Python workflows to quickly interact with
 ## Quick Installation (Ubuntu/Debian)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/install | bash
+curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/install | sudo bash
+
 ```
 
 ## Installation Options

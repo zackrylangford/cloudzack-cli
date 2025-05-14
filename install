@@ -4,9 +4,18 @@
 set -e
 
 echo "Installing CloudZack CLI..."
+
+# Install dependencies first
+echo "Installing dependencies..."
+sudo apt-get update
+sudo apt-get install -y python3 python3-pip awscli
+
+# Download and install the package
+echo "Downloading and installing CloudZack CLI..."
 curl -sL https://github.com/zackrylangford/cloudzack-cli/releases/download/v0.1.0/cloudzack-cli_0.1.0_all.deb -o /tmp/cloudzack-cli.deb
 sudo dpkg -i /tmp/cloudzack-cli.deb
-sudo apt-get install -f -y
 rm /tmp/cloudzack-cli.deb
 
 echo "CloudZack CLI installed successfully!"
+echo "REMINDER: You will need to run 'aws configure' to set up your AWS credentials."
+echo "You will need your AWS Access Key ID and Secret Access Key."
