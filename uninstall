@@ -4,19 +4,30 @@
 set -e
 
 echo "Uninstalling CloudZack CLI..."
-sudo apt-get remove -y cloudzack-cli
+
+# Remove symlinks
+echo "Removing command links..."
+for script in /opt/cloudzack-cli/shared/*.py; do
+  if [ -f "$script" ]; then
+    script_name=$(basename "$script" .py)
+    sudo rm -f "/usr/local/bin/cloudzack-$script_name"
+  fi
+done
+
+# Remove installation directory
+echo "Removing installation directory..."
+sudo rm -rf /opt/cloudzack-cli
 
 echo "Do you want to remove configuration files as well? (y/n)"
 read -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Removing configuration files..."
-  sudo apt-get purge -y cloudzack-cli
-  
   # Remove user config directories
-  if [ -d "$HOME/.cloudzack-cli" ]; then
+  USER_HOME=$(eval echo ~${SUDO_USER:-$USER})
+  CONFIG_DIR="$USER_HOME/.cloudzack-cli"
+  if [ -d "$CONFIG_DIR" ]; then
     echo "Removing user configuration directory..."
-    rm -rf "$HOME/.cloudzack-cli"
+    rm -rf "$CONFIG_DIR"
   fi
 fi
 
