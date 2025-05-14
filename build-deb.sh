@@ -11,7 +11,7 @@ PKG_NAME="cloudzack-cli"
 PKG_VERSION="0.2.0"
 PKG_ARCH="all"
 MAINTAINER="Zack Langford <zack@cloudzack.com>"
-DEPENDS="python3, python3-pip, curl, unzip"
+DEPENDS="python3, curl, unzip"
 
 # Create package directories
 BUILD_DIR="build"
@@ -45,18 +45,6 @@ cat > "$DEBIAN_DIR/postinst" << EOF
 #!/bin/bash
 
 set -e
-
-# Install Python dependencies
-pip3 install boto3 botocore
-
-# Install AWS CLI v2 if not already installed
-if ! command -v aws &> /dev/null; then
-  echo "Installing AWS CLI..."
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
-  unzip -q /tmp/awscliv2.zip -d /tmp
-  /tmp/aws/install
-  rm -rf /tmp/aws /tmp/awscliv2.zip
-fi
 
 # Make scripts executable
 find /opt/cloudzack-cli -name "*.py" -exec chmod +x {} \;

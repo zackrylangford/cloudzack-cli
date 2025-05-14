@@ -8,7 +8,7 @@ echo "Installing CloudZack CLI..."
 # Install dependencies first
 echo "Installing dependencies..."
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip curl unzip
+sudo apt-get install -y python3 python3-pip python3-setuptools python3-wheel curl unzip
 
 # Install AWS CLI v2 (the recommended way)
 echo "Installing AWS CLI..."
@@ -25,6 +25,10 @@ echo "Downloading and installing CloudZack CLI..."
 curl -sL https://github.com/zackrylangford/cloudzack-cli/releases/download/v0.2.0/cloudzack-cli_0.2.0_all.deb -o /tmp/cloudzack-cli.deb
 sudo dpkg -i /tmp/cloudzack-cli.deb || sudo apt-get install -f -y
 rm /tmp/cloudzack-cli.deb
+
+# Install Python dependencies
+echo "Installing Python dependencies..."
+sudo pip3 install boto3 botocore
 
 echo "CloudZack CLI installed successfully!"
 echo "REMINDER: You will need to run 'aws configure' to set up your AWS credentials."
