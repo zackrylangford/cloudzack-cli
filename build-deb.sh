@@ -8,7 +8,7 @@ echo "Building Debian package for cloudzack-cli..."
 
 # Package information
 PKG_NAME="cloudzack-cli"
-PKG_VERSION="0.1.0"
+PKG_VERSION="0.2.0"
 PKG_ARCH="all"
 MAINTAINER="Zack Langford <zack@cloudzack.com>"
 DEPENDS="python3, python3-pip, curl, unzip"

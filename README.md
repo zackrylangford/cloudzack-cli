@@ -17,7 +17,7 @@ curl -sSL https://raw.githubusercontent.com/zackrylangford/cloudzack-cli/main/in
 
 2. Install the package:
    ```bash
-   sudo dpkg -i cloudzack-cli_0.1.0_all.deb
+   sudo dpkg -i cloudzack-cli_0.2.0_all.deb
    sudo apt-get install -f  # Install any missing dependencies
    ```
 
